@@ -28,6 +28,11 @@ This project analyzes online retail transaction data using Python to discover sa
 ### Top 10 Countries by Revenue
 ![Top 10 Countries by Revenue](top_10_countries.png)
 
+
+### Sales by Day of the Week
+![Sales by Day of the Week](sales_by_day_of_week.png)
+
+
 ## Business Insights
 
 The analysis of the Online Retail dataset revealed several important findings:
