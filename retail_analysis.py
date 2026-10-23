@@ -151,3 +151,48 @@ total_revenue = df["Revenue"].sum()
 country_percentage = (best_country_revenue / total_revenue) * 100
 
 print(f"\nTop country's share of total revenue: {country_percentage:.2f}%")
+
+
+# Day-of-Week Sales Analysis
+df["DayOfWeek"] = df["InvoiceDate"].dt.day_name()
+
+daily_sales = (
+    df.groupby("DayOfWeek")["Revenue"]
+    .sum()
+    .reindex([
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+    ])
+)
+
+daily_sales = daily_sales.dropna()
+
+print("\n========== SALES BY DAY OF WEEK ==========")
+print(daily_sales.round(2))
+print("\nNote: No Saturday transactions were found in the cleaned dataset.")
+
+# Find the day with the highest revenue
+best_day = daily_sales.idxmax()
+best_day_revenue = daily_sales.max()
+
+print(f"\nBest sales day: {best_day}")
+print(f"Revenue: £{best_day_revenue:,.2f}")
+
+# Create a bar chart
+plt.figure(figsize=(10, 6))
+daily_sales.plot(kind="bar")
+
+plt.title("Total Retail Sales by Day of the Week")
+plt.xlabel("Day of the Week")
+plt.ylabel("Revenue (£)")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig("sales_by_day_of_week.png", dpi=300)
+plt.show()
+
+print("\nDay-of-week sales chart saved as sales_by_day_of_week.png")
