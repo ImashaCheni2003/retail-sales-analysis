@@ -274,3 +274,42 @@ plt.savefig("monthly_sales_growth.png", dpi=300)
 plt.show()
 
 print("\nMonthly sales growth chart saved as monthly_sales_growth.png")
+
+
+# Customer Segmentation Using RFM Analysis
+print("\n========== CUSTOMER SEGMENTATION (RFM) ==========")
+
+rfm_df = df.dropna(subset=["CustomerID"]).copy()
+
+rfm_df["InvoiceDate"] = pd.to_datetime(rfm_df["InvoiceDate"])
+
+reference_date = rfm_df["InvoiceDate"].max() + pd.Timedelta(days=1)
+
+rfm = rfm_df.groupby("CustomerID").agg(
+    Recency=("InvoiceDate", lambda dates: (reference_date - dates.max()).days),
+    Frequency=("InvoiceNo", "nunique"),
+    Monetary=("Revenue", "sum")
+)
+
+rfm["CustomerSegment"] = "Regular"
+
+rfm.loc[
+    (rfm["Frequency"] >= rfm["Frequency"].quantile(0.75)) &
+    (rfm["Monetary"] >= rfm["Monetary"].quantile(0.75)),
+    "CustomerSegment"
+] = "High Value"
+
+rfm.loc[
+    rfm["Recency"] >= rfm["Recency"].quantile(0.75),
+    "CustomerSegment"
+] = "Needs Attention"
+
+print("\nCustomer segment counts:")
+print(rfm["CustomerSegment"].value_counts())
+
+print("\nSample RFM results:")
+print(rfm.head(10).round(2))
+
+rfm.to_csv("customer_segmentation.csv")
+
+print("\nCustomer segmentation saved as customer_segmentation.csv")
