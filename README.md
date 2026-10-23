@@ -16,10 +16,18 @@ This project analyzes online retail transaction data using Python to discover sa
 - Matplotlib
 - Excel
 
+
 ## Visualizations
-- Monthly Sales Analysis
-- Top 10 Products by Revenue
-- Top 10 Countries by Revenue
+
+### Monthly Sales Analysis
+![Monthly Sales Analysis](monthly_sales.png)
+
+### Top 10 Products by Revenue
+![Top 10 Products by Revenue](top_10_products.png)
+
+### Top 10 Countries by Revenue
+![Top 10 Countries by Revenue](top_10_countries.png)
+
 
 ## Dataset
 Source: UCI Machine Learning Repository — Online Retail  
