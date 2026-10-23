@@ -32,6 +32,10 @@ This project analyzes online retail transaction data using Python to discover sa
 ### Sales by Day of the Week
 ![Sales by Day of the Week](sales_by_day_of_week.png)
 
+### Top 10 Customers by Revenue
+![Top 10 Customers by Revenue](top_10_customers.png)
+
+
 
 ## Business Insights
 
