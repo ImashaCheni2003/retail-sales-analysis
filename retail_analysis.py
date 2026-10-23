@@ -121,3 +121,33 @@ plt.show()
 
 print("\nCountry sales chart saved as top_10_countries.png")
 
+
+# Business Insights
+print("\n========== BUSINESS INSIGHTS ==========")
+
+# Best month by revenue
+best_month = monthly_sales.idxmax()
+best_month_revenue = monthly_sales.max()
+
+print(f"\nBest sales month: {best_month}")
+print(f"Revenue: £{best_month_revenue:,.2f}")
+
+# Lowest month by revenue
+lowest_month = monthly_sales.idxmin()
+lowest_month_revenue = monthly_sales.min()
+
+print(f"\nLowest sales month: {lowest_month}")
+print(f"Revenue: £{lowest_month_revenue:,.2f}")
+
+# Highest revenue country
+best_country = country_sales.idxmax()
+best_country_revenue = country_sales.max()
+
+print(f"\nTop country: {best_country}")
+print(f"Revenue: £{best_country_revenue:,.2f}")
+
+# Top country's revenue contribution
+total_revenue = df["Revenue"].sum()
+country_percentage = (best_country_revenue / total_revenue) * 100
+
+print(f"\nTop country's share of total revenue: {country_percentage:.2f}%")
