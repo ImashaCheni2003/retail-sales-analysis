@@ -35,6 +35,8 @@ This project analyzes online retail transaction data using Python to discover sa
 ### Top 10 Customers by Revenue
 ![Top 10 Customers by Revenue](top_10_customers.png)
 
+### Monthly Sales Growth
+![Monthly Sales Growth](monthly_sales_growth.png)
 
 
 ## Business Insights
