@@ -39,6 +39,19 @@ This project analyzes online retail transaction data using Python to discover sa
 ![Monthly Sales Growth](monthly_sales_growth.png)
 
 
+## Customer Segmentation
+
+Customers are grouped using RFM analysis:
+
+- **Recency:** Days since the customer's latest purchase.
+- **Frequency:** Number of distinct invoices.
+- **Monetary:** Total customer revenue.
+
+The analysis identifies high-value customers and customers who may need attention. These are rule-based segments, not machine-learning predictions.
+
+The customer-level results are available in `customer_segmentation.csv`.
+
+
 ## Business Insights
 
 The analysis of the Online Retail dataset revealed several important findings:
