@@ -252,3 +252,25 @@ repeat_percentage = (
 )
 
 print(f"Repeat customers (%): {repeat_percentage:.2f}%")
+
+
+# Monthly Sales Growth Analysis
+print("\n========== MONTHLY SALES GROWTH ==========")
+
+monthly_growth = monthly_sales.pct_change() * 100
+
+print("\nMonthly revenue growth (%):")
+print(monthly_growth.round(2))
+
+plt.figure(figsize=(12, 6))
+monthly_growth.plot(kind="line", marker="o")
+plt.title("Monthly Sales Growth Rate")
+plt.xlabel("Month")
+plt.ylabel("Revenue Growth (%)")
+plt.axhline(y=0, linestyle="--")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig("monthly_sales_growth.png", dpi=300)
+plt.show()
+
+print("\nMonthly sales growth chart saved as monthly_sales_growth.png")
